@@ -389,7 +389,6 @@ def camera():
 
 #------------- Compare Images ------------------------
 def compare(dirname):
-    #surl="http://localhost:8000/api/v1/compare_faces"
     print('Compare')
     global count1
     print('Count1 : ', count1)
@@ -417,45 +416,7 @@ def compare(dirname):
                 print("There was an issue")
     return ''
 
-
-#---------------------QRCODE-----------------------------
-'''@app.route('/scan-qr', methods=['GET', 'POST'])
-def scan_qr():
-    print("HELLOO")
-    f = open(app.config["IMAGE_UPLOADS"] + 'dirname.txt', 'r')
-    dirname = f.read()
-    if request.method == "POST":
-        print("REQUEST FILES")
-        name1 = request.form["user_name"]
-        uid1 = request.form["user_uid"]
-    img = cv2.imread(r"C:/Users/NIKHIL/Desktop/Setup/Folders/Development/Hackathon/STANDARD CHARTERED/website/kyc-verification/imgdatabase{dirname}/Dataset/img0.png")
-    code = decode(img)
-    dat = ''
-    print("\n1\n")
-    for i in code:
-        dat = dat + i.data.decode("utf-8")
-    print(dat)
-    print("\n\n")
-    uid = ''
-    for i in range(0, 12):
-        uid = uid + dat[i + 28]
-    print(uid)
-    name = ''
-    for i in range(0, 50):
-        if dat[i + 48] == "'":
-            break
-        name = name + dat[i + 48]
-    print(name)
-    if uid1 == uid:
-        if name1 == name:
-            print("\nQR CODE Verifed\n")
-            return render_template('stp5.html', result=True, fname=current_user.fname, lname=current_user.lname)
-    else:
-        print("\nQR CODE VERIFICATION NOT SUCCESSFULL\n")
-    return render_template('stp5.html', result=False, fname=current_user.fname, lname=current_user.lname)'''
-
-#================RUN===============================================================================    
-
+#Main
 if __name__ == "__main__":
     app.run(debug=True)
     db.create_all()
