@@ -1,0 +1,140 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %} Dashboard {% endblock %}
+
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #007bff;
+        }
+        
+        .button {
+            display: inline-block;
+            border-radius: 4px;
+            background-color: #f4511e;
+            border: none;
+            color: #FFFFFF;
+            text-align: center;
+            font-size: 16px;
+            padding: 15px;
+            width: 160px;
+            transition: all 0.5s;
+            cursor: pointer;
+            margin: 5px;
+            font-family: 'Roboto', sans-serif;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 9px rgb(187, 186, 186);
+            text-decoration: none;
+        }
+        
+        .button span {
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            transition: 0.5s;
+            color: white;
+        }
+        
+        .button span:after {
+            content: '\00bb';
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            right: -20px;
+            transition: 0.5s;
+        }
+        
+        .button:hover span:after {
+            opacity: 1;
+            right: 0;
+        }
+        
+        .home {
+            border-radius: 8%;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            padding: 10px;
+        }
+        
+        .para {
+            margin: 0 150px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 18px;
+            color: #2d2d2d;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">KYC VERIFICATION</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="{{ url_for('dashboard') }}">DASHBOARD</a></li>
+                <li><a href="{{ url_for('created') }}">CREATED BY</a></li>
+                <li><a href="{{ url_for('profile') }}">PROFILE</a></li>
+                <li><a href="{{ url_for('logout') }}">LOG OUT</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+        <center>
+            <br>
+            <div class="tittle" style="font-family: 'Roboto', sans-serif; color: rgb(255, 255, 255); font-size: 32px;">
+                <b>KYC Verification Process</b>
+            </div>
+            <center>
+                <div style="position: center;"><img src="/static/images/line.png" style="width: 30%"></div>
+            </center>
+            
+            <br><br>
+            <div style="position:center;"><img src="/static/images/KYC_img.png" style="width: 25%" class="home"></div>
+            <br><br>
+        </center>
+        <!--Needs to be edited-->
+        <div class="para" style="color: rgb(46, 46, 46);">
+            <center>
+                <h1><b>Complete your online E-KYC Verfication in 4 simple and interactive steps :</b></h1>
+            </center>
+            <h3 style="padding: 0 100px;"><br>
+                <b>STEP 1 : </b> Hello, let us begin by clicking the  "Start Process" button on your Dashboard
+                <br><br>
+                <b>STEP 2 : </b> Enter your personal details for verification.
+                <br><br>
+                <b>STEP 3 : </b> Upload your aadhar card/ pan card or any other Govt. ID.
+                <br><br>
+                <b>STEP 4 : </b> Click "Open Camera" and look into the camera till the verfication process is completed.
+                <br><br>
+                <center><b>Your Verification process is completed and the result will be displayed on the screen</b></center>
+                <br>
+            </h3>
+        </div>
+        <!-- <center>
+            <div style="position: center;"><img src="/static/images/.png" style="width: 30%"></div>
+        </center> --> 
+        <center>
+            <h3 class="sub-header">NOTE: Keep you documents ready and start the verification process. </h3>
+            <a href="{{ url_for('enterDetails') }}" class="button" style="vertical-align: middle;">
+                <span>Start Process</span>
+            </a>
+            <br><br>
+        </center>
+    </div>
+</div>
+{% endblock %}

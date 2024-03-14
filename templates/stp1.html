@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <title>KYC Verification Process</title>
+    <style>
+        body {
+            background-color: #007bff;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        /* Center the loader */
+        #loader {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            z-index: 1;
+            width: 80px;
+            height: 80px;
+            margin: -40px 0 0 -40px;
+            border: 10px solid #cc33ff;
+            border-radius: 50%;
+            border-top: 10px solid whitesmoke;
+            -webkit-animation: spin 2s linear infinite;
+            animation: spin 2s linear infinite;
+            display: none;
+        }
+
+        @-webkit-keyframes spin {
+            0% {
+                -webkit-transform: rotate(0deg);
+            }
+
+            100% {
+                -webkit-transform: rotate(360deg);
+            }
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Add animation to "page content" */
+        .animate-bottom {
+            position: relative;
+            -webkit-animation-name: animatebottom;
+            -webkit-animation-duration: 1s;
+            animation-name: animatebottom;
+            animation-duration: 1s;
+        }
+
+        @-webkit-keyframes animatebottom {
+            from {
+                bottom: -100px;
+                opacity: 0;
+            }
+
+            to {
+                bottom: 0px;
+                opacity: 1;
+            }
+        }
+
+        @keyframes animatebottom {
+            from {
+                bottom: -100px;
+                opacity: 0;
+            }
+
+            to {
+                bottom: 0;
+                opacity: 1;
+            }
+        }
+
+        #myDiv {
+            display: none;
+            text-align: center;
+        }
+
+        .buttonG {
+            background: linear-gradient(to right, #167ac6, #434ced, #9200de, #2200fd, #007bff);
+            font-size: 16px;
+            padding: 15px;
+            background-size: 500% 100%;
+            transition: all .6s ease-in-out;
+            white-space: normal;
+            border-radius: 3px;
+            border-width: 0;
+            color: #fff;
+            text-decoration: none;
+            display: inline-block;
+            margin: 0 0 20px;
+            font-weight: bold;
+            line-height: 1.1;
+            letter-spacing: 1px;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .buttonG:hover {
+            background-position: -50% 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, .4);
+        }
+
+        /* Below is animation */
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-8 mx-auto"> <!-- Added mx-auto class for centering -->
+                <div class="card" style="width: 800px;"> <!-- Added fixed width -->
+                    <div class="card-body text-center">
+                        <!-- Title -->
+                        <h1 class="mt-3 mb-4"><b>KYC Verification Process</b></h1>
+                        <!-- Instructions -->
+                        <p class="mb-4">To use our service, please complete the verification process below.</p>
+                        <!-- Progressbar -->
+                        <ul class="nav nav-pills nav-justified mb-4">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#">Upload Document</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Live Video Check</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Result</a>
+                            </li>
+                        </ul>
+                        <!-- Form -->
+                        <form action="/upload-image" method="POST" enctype="multipart/form-data" id="msform">
+                            <!-- Fieldset -->
+                            <fieldset>
+                                <h4 class="mb-3"><b>Upload Document</b></h4>
+                                <small class="text-muted">Please upload your Aadhar, Passport, Driving License, or PAN card.</small>
+                                <div class="form-group mt-3">
+                                    <input type="file" name="image" id="image" class="form-control" />
+                                </div>
+                                <br>
+                                <button type="submit" class="buttonG mb-4" onclick="showpage()">Upload</button>
+                                <hr>
+                                <!--<div class="done_text">
+                                    <span><i class="fas fa-circle"></i><i class="fas fa-circle"></i><i class="fas fa-circle"></i><i class="fas fa-circle"></i><i class="fas fa-circle"></i></span>
+                                </div>-->
+                            </fieldset>
+                        </form>
+                        <!-- Loader -->
+                        <div id="loader"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    <script>
+        var myVar;
+    
+        function showpage() {
+            document.getElementById("loader").style.display = "block";
+            document.getElementById("msform").style.display = "none";
+            // Redirect to "/stp2" after a certain delay (e.g., 2 seconds)
+            setTimeout(function() {
+                window.location.href = "/stp2";
+            }, 2000); // Delay in milliseconds
+        }
+    </script>
+    <script>
+        var myVar;
+
+        function showpage() {
+            document.getElementById("loader").style.display = "block";
+            document.getElementById("msform").style.display = "none";
+        }
+    </script>
+</body>
+
+</html>
