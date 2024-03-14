@@ -10,7 +10,7 @@ import re
 import warnings
 from werkzeug.utils import secure_filename
 import numpy as np
-#from deepface import DeepFace
+from deepface import DeepFace
 
 #import db
 from flask_bootstrap import Bootstrap
@@ -20,10 +20,7 @@ from wtforms.validators import DataRequired, InputRequired, Email, Length
 from flask_sqlalchemy  import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
-#from wtforms.fields.html5 import DateField
 
-
-#from pyzbar.pyzbar import decode
 
 app = Flask(__name__)
 app.config["IMAGE_UPLOADS"] = r"C:/Users/NIKHIL/Desktop/Setup/Folders/Development/Hackathon/STANDARD CHARTERED/website/kyc-verification/"
