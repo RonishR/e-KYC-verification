@@ -1,7 +1,5 @@
 ## E-KYC Verification
 
-**Demo Video** - [https://drive.google.com/file/d/1lVaULSsKON_sjkBrKxPQhWEcrj1uz83L/view?usp=sharing]
-
 
 **Problem Statement:**<br>
 In the present scenario, the process of KYC verification is a tedious, largely offline and manual process. Subsequently when it is an online process, it is a non-interactive one which cannot be understood clearly by the older generation and the people with a slightly lower level of education.<br>  
@@ -30,4 +28,7 @@ In this project, we shall be solving this problem by building an interactive web
 ## Video Demo
 
 https://github.com/nt6095/e-KYC-verification/assets/69105829/f2a4575f-b60c-44b0-9d94-e55b4876812e
+
+**Demo Video** - [https://drive.google.com/file/d/1lVaULSsKON_sjkBrKxPQhWEcrj1uz83L/view?usp=sharing]
+
 
