@@ -26,3 +26,8 @@ In this project, we shall be solving this problem by building an interactive web
 **Step 3:** In this step, the Live Video of the Person will be captured and screenshots will be taking during the live video. This image of the person is then stored which is matched with the face of the document submitted.<br>
 
 **Step 4:** Finally, if the Match is successful the KYC Process will be successfully completed.
+
+## Video Demo
+
+https://github.com/nt6095/e-KYC-verification/assets/69105829/f2a4575f-b60c-44b0-9d94-e55b4876812e
+
