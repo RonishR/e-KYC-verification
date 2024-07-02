@@ -10,6 +10,7 @@ import re
 import warnings
 from werkzeug.utils import secure_filename
 import numpy as np
+
 from deepface import DeepFace
 
 #import db
@@ -30,7 +31,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///C:/Users/NIKHIL/Desktop/Setup
 bootstrap = Bootstrap(app)
 db = SQLAlchemy(app)
 #db.create_all()
-
+#
 login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = 'login'
