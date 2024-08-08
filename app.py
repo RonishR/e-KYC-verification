@@ -26,7 +26,7 @@ from flask_login import LoginManager, UserMixin, login_user, login_required, log
 app = Flask(__name__)
 app.config["IMAGE_UPLOADS"] = r"C:/Users/NIKHIL/Desktop/Setup/Folders/Development/Hackathon/STANDARD CHARTERED/website/kyc-verification/"
 app.config['SECRET_KEY'] = 'secretkey'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///C:/Users/NIKHIL/Desktop/Setup/Folders/Development/Hackathon/STANDARD CHARTERED/website/kyc-verification/user.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///C:/Users/Rupanjan/Desktop/Setup/Folders/Development/Hackathon/STANDARD CHARTERED/website/kyc-verification/user.db'
 #db = SQLAlchemy(app)
 bootstrap = Bootstrap(app)
 db = SQLAlchemy(app)
